@@ -1,5 +1,4 @@
 
-package other_programs;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,19 +43,9 @@ public class Pseudocode {
                 }else if(programLine.indexOf("import ")!=-1){
                     reviseProgram.println(programLine + " //import statement");
                 }else if(programLine.indexOf("class ")!=-1){
-                    //if(programLine.indexOf(" ")!=-1){
-                        //className = programLine.substring(13, programLine.indexOf(" ")).trim();;
-                       // reviseProgram.print(programLine + " //instantiating class with reference name of " +
-                          //      className);
-                   // }else if(programLine.indexOf("{")!=-1){
-                    //    className = programLine.substring(13, programLine.indexOf("{")).trim();;
-                    //    reviseProgram.print(programLine + " //instantiating class with reference name of " +
-                     //           className);
-                   // }else{
-                        className = programLine.substring(13, programLine.length()).trim();
-                        reviseProgram.print(programLine + " //instantiating class with reference name of " +
+                    className = programLine.substring(13, programLine.length()).trim();
+                    reviseProgram.print(programLine + " //instantiating class with reference name of " +
                                 className);
-                   // }
                     
                     if(programLine.indexOf("extends")!=-1){
                         reviseProgram.print(", " + programLine.substring(programLine.indexOf("extends")));
@@ -359,5 +348,6 @@ public class Pseudocode {
             }
         }
         reviseProgram.close();
+        System.out.println("Done");
     }
 }

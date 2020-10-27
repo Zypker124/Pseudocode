@@ -1,0 +1,88 @@
+package other_programs;
+import java.util.*; //import statement
+
+public class Fraction { //instantiating class with reference name of Fraction {
+	
+	//OBJECT VARIABLES
+	private int numerator; //private field variable that stores an integer (primitive type)
+	private int denominator; //private field variable that stores an integer (primitive type)
+	
+	//CONSTRUCTORS	
+	public Fraction(){
+		numerator = 0;
+		denominator = 1;
+	}
+	
+	public Fraction(int n){ //local variable of primitive data type integer
+		numerator = n;
+		denominator = 1;
+	}
+	
+	public Fraction(int n, int d){ //local variable of primitive data type integer
+		numerator = n;
+		denominator = d;
+	}
+	
+	public Fraction(Fraction other){
+		numerator = other.numerator;
+		denominator = other.denominator;
+	}
+	
+	//PUBLIC METHODS	
+	public Fraction add(Fraction other){
+		int newNumerator = numerator * other.denominator + denominator * other.numerator; //local variable of primitive data type integer
+		int newDenominator = denominator * other.denominator; //local variable of primitive data type integer
+		return new Fraction(newNumerator, newDenominator); //return this value
+	}
+	
+	public Fraction add(int m){ //local variable of primitive data type integer
+		return new Fraction(numerator + m * denominator, denominator); //return this value
+	}
+	
+	public Fraction multiply(Fraction other){
+		int newNumerator = numerator * other.numerator; //local variable of primitive data type integer
+		int newDenominator = denominator * other.denominator; //local variable of primitive data type integer
+		return new Fraction(newNumerator, newDenominator); //return this value
+	}
+	
+	public Fraction multiply(int m){ //local variable of primitive data type integer
+		return new Fraction(numerator * m, denominator); //return this value
+	}
+	
+	public double getValue(){ //public method that returns a double (primitive type)
+		return (double)numerator/(double)denominator; //return this value
+	}
+	
+	public String toString(){ //public method that returns a String (object type)
+		return numerator + "/" + denominator; //return this value
+	}
+	
+	//PRIVATE METHODS	
+	private void reduce(){ //public method that doesn't return anything
+		if(numerator == 0){ //if loop, tests the condition inside the parentheses
+			denominator = 1;
+			return; //return this value
+		}
+		if(denominator < 0){ //if loop, tests the condition inside the parentheses
+			numerator = -numerator;
+			denominator = -denominator;
+		}
+		int q = gcf(Math.abs(numerator), denominator); //local variable of primitive data type integer
+		numerator /= q; //divide this variable 		numerator  by  q;
+		denominator /= q; //divide this variable 		denominator  by  q;
+	}
+	
+	private int gcf(int n, int d){ //private method that returns an integer (primitive type)
+		if(n <= 0 || d <= 0){ //if loop, tests the condition inside the parentheses
+			System.err.println("gcf precondition failed: " + n + ", " + d);
+		}
+		if(n % d == 0){ //if loop, tests the condition inside the parentheses
+			return d; //return this value
+		}else if(d % n == 0){ //if loop, tests the condition inside the parentheses
+			return n; //return this value
+		}else{ //if the condition / conditions above fail, fulfill this condition
+			return gcf(n % d, d % n); //return this value
+		}
+	}
+	
+}

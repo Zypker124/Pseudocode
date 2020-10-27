@@ -1,0 +1,92 @@
+package other_programs;
+import java.util.*;
+
+public class Fraction {
+	
+	//OBJECT VARIABLES
+
+	private int numerator;
+	private int denominator;
+	
+	//CONSTRUCTORS
+	
+	public Fraction(){
+		numerator = 0;
+		denominator = 1;
+	}
+	
+	public Fraction(int n){
+		numerator = n;
+		denominator = 1;
+	}
+	
+	public Fraction(int n, int d){
+		numerator = n;
+		denominator = d;
+	}
+	
+	public Fraction(Fraction other){
+		numerator = other.numerator;
+		denominator = other.denominator;
+	}
+	
+	//PUBLIC METHODS
+	
+	public Fraction add(Fraction other){
+		int newNumerator = numerator * other.denominator + denominator * other.numerator;
+		int newDenominator = denominator * other.denominator;
+		return new Fraction(newNumerator, newDenominator);
+	}
+	
+	public Fraction add(int m){
+		return new Fraction(numerator + m * denominator, denominator);
+	}
+	
+	public Fraction multiply(Fraction other){
+		int newNumerator = numerator * other.numerator;
+		int newDenominator = denominator * other.denominator;
+		return new Fraction(newNumerator, newDenominator);
+	}
+	
+	public Fraction multiply(int m){
+		return new Fraction(numerator * m, denominator);
+	}
+	
+	public double getValue(){
+		return (double)numerator/(double)denominator;
+	}
+	
+	public String toString(){
+		return numerator + "/" + denominator;
+	}
+	
+	//PRIVATE METHODS
+	
+	private void reduce(){
+		if(numerator == 0){
+			denominator = 1;
+			return;
+		}
+		if(denominator < 0){
+			numerator = -numerator;
+			denominator = -denominator;
+		}
+		int q = gcf(Math.abs(numerator), denominator);
+		numerator /= q;
+		denominator /= q;
+	}
+	
+	private int gcf(int n, int d){
+		if(n <= 0 || d <= 0){
+			System.err.println("gcf precondition failed: " + n + ", " + d);
+		}
+		if(n % d == 0){
+			return d;
+		}else if(d % n == 0){
+			return n;
+		}else{
+			return gcf(n % d, d % n);
+		}
+	}
+	
+}
