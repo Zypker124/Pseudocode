@@ -1,2 +1,2 @@
 # Pseudocode
-Little inefficient and archaic widget that scans through a program and adds pseudocode to document the program.
+A custom self-made widget that scans through a program and adds proper documentation to the program file.
