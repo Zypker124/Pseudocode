@@ -6,6 +6,16 @@
 
 using namespace std;
 
+/**
+ * Pseudocode.cpp
+ * Scans in code and adds pseudocode when appropriate.
+ * @author Angus Jyu
+ * @version October 31, 2020
+ * */
+
+     /**
+     * Main method of Pseudocode.cpp
+     * */
 int main() {
   run(); // Calls on run
 }
@@ -348,3 +358,8 @@ void run() {
     outputFile.close();
   }
 }
+
+/*
+  Self-Keeping Notes:
+    - Converted program from Java to C++.
+*/

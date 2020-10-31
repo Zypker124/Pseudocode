@@ -8,7 +8,7 @@ import java.io.IOException;
  * Pseudocode.java
  * Scans in code and adds pseudocode when appropriate.
  * @author Angus Jyu
- * @version March 6, 2017
+ * @version October 31, 2020
  * */
 public class Pseudocode {
     /**
