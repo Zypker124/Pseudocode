@@ -7,8 +7,14 @@
 using namespace std;
 
 int main() {
-  run();
+  run(); // Calls on run
 }
+
+/*
+  run() is the primary method that runs Pseudocode.cpp.
+  inputFile is used as an input stream,
+  outputFile is used as an output stream.
+*/
 
 void run() {
   ifstream inputFile ("OldFile.txt");
